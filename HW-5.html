@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {
+            height: 250px;
+            width: 250px;
+        }
+        img {
+            height: 100px;
+            width: 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <script>
+            //1 ) Вычислить (суммы элементов массива):
+        let arrX = [0.3, 5.2, 9.4, 8];
+        let arrY = [43, 5, 3.4, 8, 20];
+        function arrSum(array){
+            let sum = 0;
+            array.forEach(function(item){
+        sum += item
+    })
+    return sum
+}
+alert (arrSum(arrX));
+alert (arrSum(arrY));
+
+    let c = ((arrSum(arrX)+ arrSum(arrY))/2);
+    console.log(c);
+
+    </script>
+
+    <script>
+        /*2 Вычислить C=(M!+N!)/(M+1)!
+        M и N – числа введенные с клавиатуры.
+        M! – это факториал числа, например, 5! = 1*2*3*4*5, это равно 120.
+        Факториал должен вычисляться с помощью одной функции.*/
+
+        let M = +prompt("Введите число:",0);
+        let N = +prompt("Введите число:",0);
+        function factorial(n){
+            return (n != 1) ? n * factorial(n - 1) : 1;
+        }
+        let C =((factorial(M)+ factorial(N))/(M+1))
+        alert(C);
+    </script>
+
+
+<script>
+//3. Напишите скрипт получения рандомного hex-цвета вида: #23af5c. В формировании 
+//цвета участвуют цифры от 0 до 9 и английские буквы от a до f.
+
+    function generateRandomColor(){
+    let randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    if(randomColor.length != 7){ 
+        randomColor = generateRandomColor();
+    }
+    return randomColor;
+   
+}
+document.body.style.backgroundColor = generateRandomColor()
+
+</script>
+
+
+<div id="box"></div>
+<script>
+//4. Напишите скрипт, который с помощью функции создает столько блоков 250 х 250 пикселей, сколько введено в prompt и 
+// раскрашивает каждый блок рандомным цветом, размещает в центр каждого блока картинку размером 100 х 100 пикс.	
+
+let bloc = +prompt ("Введите количество блоков ");
+let pag = +prompt ("Какую картинку?");
+
+        let myBloc = "";
+
+        for (i=1; i<=bloc; i++) {
+
+            myBloc += "<div>";
+       
+                    myBloc += `<img src="images/${pag}.jpg" alt="" >`;
+                    function RandomColor(){
+    let randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    if(randomColor.length != 7){ 
+        randomColor = RandomColor();
+    }
+    return randomColor;
+
+}
+            myBloc += "</div>"; 
+        }
+
+        box.innerHTML = myBloc;
+        document.body.div.style.backgroundColor = RandomColor()
+     
+</script>
+
+</body>
+</html>
